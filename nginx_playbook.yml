@@ -1,14 +1,16 @@
-~
- name: Install nginx & Run
- hosts: ops
- become: yes
- tasks:
-  - name: Install nginx
-    apt:
-      name: nginx
-      state: latest
-  - name: Start nginx
-    service:
-      name: nginx
-      state: started
-      enabled: yes
+---
+- name: Install and Start Nginx
+  hosts: web_servers
+  become: yes # Run tasks with sudo
+
+  tasks:
+    - name: Install Nginx
+      package:
+        name: nginx
+        state: latest
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
