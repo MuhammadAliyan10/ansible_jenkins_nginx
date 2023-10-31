@@ -1,3 +1,3 @@
 #! /bin/bash
 
-ansible-playbook nginx_playbook.yml
+ansible-playbook -i inventory_server.ini nginx_playbook.yml
