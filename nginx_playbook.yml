@@ -1,7 +1,7 @@
 ---
 - name: Install and Start Nginx
   hosts: web_servers
-  become: yes # Run tasks with sudo
+  become: yes
 
   tasks:
     - name: Install Nginx
