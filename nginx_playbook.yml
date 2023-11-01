@@ -20,5 +20,3 @@
         name: nginx
         state: started
         enabled: yes
-       vars:
-        ansible_become_pass: /home/ubuntu/keys/jenkins_ansible.pem
