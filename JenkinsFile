@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+     environment {
+        SSH_CREDENTIALS = credentials('jenkins-ec2-instance')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    def gitBranch = 'main'
+                    checkout([$class: 'GitSCM',
+                        branches: [[name: gitBranch]],
+                        userRemoteConfigs: [[url: 'https://github.com/MuhammadAliyan10/ansible_jenkins_nginx.git']]
+                    ])
+                }
+            }
+        }
+
+        stage('Build and Deploy') {
+            steps {
+                 sh 'ansible-playbook nginx_playbook.yml'
+            }
+        }
+    }
+
+
+}
