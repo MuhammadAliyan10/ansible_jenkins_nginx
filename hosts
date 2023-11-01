@@ -64,8 +64,6 @@
 
 [localhost]
 
-[localhost:vars]
- ansible_ssh_private_key_file: /home/ubuntu/keys/jenkins_anisble.pem
 
 # Ex4: Multiple hosts arranged into groups such as 'Debian' and 'openSUSE':
 
