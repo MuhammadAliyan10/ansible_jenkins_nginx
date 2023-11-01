@@ -2,7 +2,7 @@
 - name: Install Nginx & Deploy
   hosts: localhost
   become: yes
-   vars:
+  vars:
     ansible_become_pass: /home/ubuntu/keys/jenkins_anisble.pem
   tasks:
     - name: Update apt package cache
