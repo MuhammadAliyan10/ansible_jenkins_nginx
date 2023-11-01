@@ -62,7 +62,8 @@
 
 ## 10.25.1.57
 
-[localhost]
+[web_server]
+host1 ansible_host=51.20.120.102
 
 # Ex4: Multiple hosts arranged into groups such as 'Debian' and 'openSUSE':
 
