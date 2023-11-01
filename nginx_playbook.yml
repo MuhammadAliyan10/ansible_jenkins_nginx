@@ -1,13 +1,17 @@
 ---
-- name: Install and Start Nginx
+- name: Install Nginx
   hosts: localhost
-  become: yes
+  become: yes  
 
   tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
     - name: Install Nginx
-      package:
+      apt:
         name: nginx
-        state: latest
+        state: present
 
     - name: Start Nginx service
       service:
