@@ -1,11 +1,8 @@
 pipeline {
     agent any
-     environment {
-        SSH_CREDENTIALS = credentials('jenkins-ec2-instance')
-    }
 
     stages {
-        stage('Checkout') {
+        stage('Code checkout and Clone') {
             steps {
                 script {
                     def gitBranch = 'main'
