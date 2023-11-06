@@ -22,29 +22,22 @@ pipeline {
                   sh 'ansible-playbook nginx_playbook.yml'
                   echo 'Playbook run successfully.'
                 }
-             }
-             stage("Send Email"){
-                steps{
-                mail bcc: '', body: '''Hello Aliyan,
-                The Ci/Cd pipeline has been build. Please check the progress.
-                Thanks.''', cc: '', from: '', replyTo: '', subject: 'Ansible Nginx Playbook', to: 'aliyannadeem10@gmail.com'
-                }
-             }
            }
+           
 
-
-// This is use to send the email notification if the build failed or succeed.
-        post {
-        always {
-            script {
-                currentBuild.result = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? 'SUCCESS' : 'FAILURE'
-                emailext(
-                    subject: "Pipeline ${currentBuild.result}",
-                    body: "The Jenkins pipeline has completed with result: ${currentBuild.result}",
-                    to: 'aliyannadeem10@gmail.com',
-                    attachLog: true,
-                )
-            }
+           post {
+            always {
+               script {
+            // Check the result of the current build
+            currentBuild.result = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? 'Succeed' : 'Failed'
+            // Send an email notification
+             mail bcc: '', body: '''Hello Mr.Aliyan,
+            Your Ci/Cd pipline of ansible jenkins nginx has been ${currentBuild.result}.Please review your code and pipeline for changes.
+            ''', cc: '', from: '', replyTo: '', subject: 'Ansible Playbook', to: 'aliyannadeem10@gmail.com'
+         
         }
     }
+}
+
+
 }
