@@ -23,21 +23,22 @@ pipeline {
                   echo 'Playbook run successfully.'
                 }
            }
+         }
            
 
-           post {
+        post {
             always {
                script {
-            // Check the result of the current build
-            currentBuild.result = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? 'Succeed' : 'Failed'
-            // Send an email notification
-             mail bcc: '', body: '''Hello Mr.Aliyan,
-            Your Ci/Cd pipline of ansible jenkins nginx has been ${currentBuild.result}.Please review your code and pipeline for changes.
-            ''', cc: '', from: '', replyTo: '', subject: 'Ansible Playbook', to: 'aliyannadeem10@gmail.com'
+                  // Check the result of the current build
+                  currentBuild.result = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? 'Succeed' : 'Failed'
+                  // Send an email notification
+                   mail bcc: '', body: '''Hello Mr.Aliyan,
+                  Your Ci/Cd pipline of ansible jenkins nginx has been ${currentBuild.result}.Please review your code and pipeline for changes.
+                  ''', cc: '', from: '', replyTo: '', subject: 'Ansible Playbook', to: 'aliyannadeem10@gmail.com'
          
+                }
+            }
         }
-    }
-}
 
 
 }
