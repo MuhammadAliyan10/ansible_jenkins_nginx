@@ -23,6 +23,11 @@ pipeline {
                   echo 'Playbook run successfully.'
                 }
              }
+             stage("Send Email"){
+                mail bcc: '', body: '''Hello Aliyan,
+                The Ci/Cd pipeline has been build. Please check the progress.
+                Thanks.''', cc: '', from: '', replyTo: '', subject: 'Ansible Nginx Playbook', to: 'aliyannadeem10@gmail.com'
+             }
            }
 
 
