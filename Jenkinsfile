@@ -9,7 +9,7 @@ pipeline {
             
           }
 
-        stage('Build and Deploy') {
+        stage('Install and deploy') {
               steps {
                 sh 'ansible-playbook nginx_playbook.yml'
                 echo 'Playbook run successfully.'
