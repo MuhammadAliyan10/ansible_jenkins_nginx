@@ -7,6 +7,6 @@
       uri:
         url: "http://localhost:8080/job/ansible_nginx/build"
         method: POST
-        user: "jenkins"
+        user: "aliyan"
         password: "110acf895be909cc0115c4f6ec011843ee"
       ignore_errors: yes
