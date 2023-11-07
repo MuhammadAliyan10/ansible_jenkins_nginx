@@ -1,0 +1,12 @@
+---
+- name: Schedule Jenkins Pipeline Build
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Use Jenkins API to schedule a build
+      uri:
+        url: "http://localhost:8080/job/ansible_nginx/build"
+        method: POST
+        user: "jenkins"
+        password: "110acf895be909cc0115c4f6ec011843ee"
+      ignore_errors: yes
