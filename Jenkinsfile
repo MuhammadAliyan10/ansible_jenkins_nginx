@@ -23,12 +23,6 @@ pipeline {
                   echo 'Playbook run successfully.'
                 }
            }
-
-           stage('Run the Script file'){
-            steps{
-              sh 'ansible-playbook script_playbook.yml'
-            }
-           }
          }
            
 
