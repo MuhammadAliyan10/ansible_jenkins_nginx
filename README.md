@@ -11,3 +11,4 @@ Note if you want to install it on other instance or many instance please update 
 <p>Log in into jenkins and create a pipeline and give link to this repo.</p>
 <p>Start build and your nginx will be install and on running on you instance.</p>
 <p>To use the email service, Install Email Extension Plugin first in your jenkins account.</p>
+<p>To run the build after every 10 minutes, use cron job..</p>
