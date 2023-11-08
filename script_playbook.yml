@@ -1,0 +1,6 @@
+---
+- name: Run the script file
+  hosts: localhost
+  tasks:
+    - name: Run Shell
+      shell: ./pipeline.sh
